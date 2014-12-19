@@ -2,27 +2,27 @@ function Toast() {
 }
 
 Toast.prototype.show = function (message, image, duration, position, successCallback, errorCallback) {
-  cordova.exec(successCallback, errorCallback, "Toast", "show", [message, image, duration, position]);
+  cordova.exec(successCallback, errorCallback, "Toast", "show", [message, duration, position, image]);
 };
 
 Toast.prototype.showShortTop = function (message, image, successCallback, errorCallback) {
-  this.show(message, image, "short", "top", successCallback, errorCallback);
+  this.show(message, "short", "top", image, successCallback, errorCallback);
 };
 
 Toast.prototype.showShortCenter = function (message, image, successCallback, errorCallback) {
-  this.show(message, image, "short", "center", successCallback, errorCallback);
+  this.show(message, "short", "center", image, successCallback, errorCallback);
 };
 
 Toast.prototype.showShortBottom = function (message, image, successCallback, errorCallback) {
-  this.show(message, image, "short", "bottom", successCallback, errorCallback);
+  this.show(message, "short", "bottom", image, successCallback, errorCallback);
 };
 
 Toast.prototype.showLongTop = function (message, image, successCallback, errorCallback) {
-  this.show(message, image, "long", "top", successCallback, errorCallback);
+  this.show(message, "long", "top", image, successCallback, errorCallback);
 };
 
 Toast.prototype.showLongCenter = function (message, image, successCallback, errorCallback) {
-  this.show(message, image, "long", "center", successCallback, errorCallback);
+  this.show(message, "long", "center", image, successCallback, errorCallback);
 };
 
 Toast.prototype.showLongBottom = function (message, successCallback, errorCallback) {
