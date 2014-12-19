@@ -9,6 +9,7 @@
   NSString *message  = [command.arguments objectAtIndex:0];
   NSString *duration = [command.arguments objectAtIndex:1];
   NSString *position = [command.arguments objectAtIndex:2];
+  NSString *image = [command.arguments objectAtIndex:3];
 
   if (![position isEqual: @"top"] && ![position isEqual: @"center"] && ![position isEqual: @"bottom"]) {
     CDVPluginResult * pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"invalid position. valid options are 'top', 'center' and 'bottom'"];
@@ -27,7 +28,7 @@
     return;
   }
 
-  [self.webView makeToast:message duration:durationInt position:position];
+  [self.webView makeToast:message duration:durationInt position:position image:image];
 
   CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
   [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
