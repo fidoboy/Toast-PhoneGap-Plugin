@@ -53,15 +53,4 @@
     <source-file src="src/android/nl/xservices/plugins/Toast.java" target-dir="src/nl/xservices/plugins"/>
   </platform>
 
-  <!-- wp8 -->
-  <platform name="wp8">
-    <config-file target="config.xml" parent="/*">
-      <feature name="Toast">
-        <param name="wp-package" value="Toast"/>
-      </feature>
-    </config-file>
-
-    <source-file src="src/wp8/Toast.cs" />
-  </platform>
-
 </plugin>
