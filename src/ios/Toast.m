@@ -2,7 +2,7 @@
 #import "Toast+UIView.h"
 #import <Cordova/CDV.h>
 
-//#import "ApplicationManager.h"
+#import "ApplicationManager.h" // Steroids build
 
 @implementation Toast
 
@@ -30,9 +30,9 @@
     return;
   }
 
-  //ApplicationViewController *root = (ApplicationViewController*)[[ApplicationManager instance] currentRootViewController];
-  //[root.webView makeToast:message duration:durationInt position:position image:image];
-  [self.webView makeToast:message duration:durationInt position:position image:image];
+  ApplicationViewController *root = (ApplicationViewController*)[[ApplicationManager instance] currentRootViewController];
+  [root.webView makeToast:message duration:durationInt position:position image:image];
+  //[self.webView makeToast:message duration:durationInt position:position image:image];
 
   CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
   [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
