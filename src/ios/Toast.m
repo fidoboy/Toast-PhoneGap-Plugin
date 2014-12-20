@@ -2,7 +2,7 @@
 #import "Toast+UIView.h"
 #import <Cordova/CDV.h>
 
-// #import "ApplicationManager.h" // Steroids build
+#import "ApplicationManager.h" // Steroids build
 
 @implementation Toast
 
