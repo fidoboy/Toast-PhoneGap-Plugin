@@ -33,8 +33,6 @@
       </feature>
     </config-file>
 
-    <header-file src="src/ios/AsyncImageView.h" />
-    <source-file src="src/ios/AsyncImageView.m" />
     <header-file src="src/ios/Toast+UIView.h"/>
     <source-file src="src/ios/Toast+UIView.m"/>
     <header-file src="src/ios/Toast.h"/>
