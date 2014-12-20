@@ -1,6 +1,7 @@
 #import "Toast+UIView.h"
 #import <QuartzCore/QuartzCore.h>
 #import <objc/runtime.h>
+#import "AsyncImageView.h"
 
 /*
  *  CONFIGURE THESE VALUES TO ADJUST LOOK & FEEL,
