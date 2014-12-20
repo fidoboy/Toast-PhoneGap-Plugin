@@ -1,7 +1,7 @@
 function Toast() {
 }
 
-Toast.prototype.show = function (message, image, duration, position, successCallback, errorCallback) {
+Toast.prototype.show = function (message, duration, position, image, successCallback, errorCallback) {
   cordova.exec(successCallback, errorCallback, "Toast", "show", [message, duration, position, image]);
 };
 
