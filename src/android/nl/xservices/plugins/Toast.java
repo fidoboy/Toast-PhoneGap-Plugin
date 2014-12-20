@@ -31,9 +31,9 @@ public class Toast extends CordovaPlugin {
           android.widget.Toast toast = android.widget.Toast.makeText(webView.getContext(), message, 0);
 
           if ("top".equals(position)) {
-            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 20);
+            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
           } else  if ("bottom".equals(position)) {
-            toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 20);
+            toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
           } else if ("center".equals(position)) {
             toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL, 0, 0);
           } else {
