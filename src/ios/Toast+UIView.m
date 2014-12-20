@@ -16,7 +16,7 @@ static const CGFloat CSToastVerticalPadding     = 10.0;
 static const CGFloat CSToastTopBottomOffset     = 0.0;
 static const CGFloat CSToastCornerRadius        = 0.0;
 static const CGFloat CSToastOpacity             = 0.9;
-static const CGFloat CSToastFontSize            = 13.0;
+static const CGFloat CSToastFontSize            = 14.0;
 static const CGFloat CSToastMaxTitleLines       = 1;
 static const CGFloat CSToastMaxMessageLines     = 3;
 static const NSTimeInterval CSToastFadeDuration = 0.2;
@@ -32,8 +32,8 @@ static const NSString * CSToastDefaultPosition  = @"top";
 static const NSTimeInterval CSToastDefaultDuration  = 3.0;
 
 // image view size
-static const CGFloat CSToastImageViewWidth      = 40.0;
-static const CGFloat CSToastImageViewHeight     = 40.0;
+static const CGFloat CSToastImageViewWidth      = 32.0;
+static const CGFloat CSToastImageViewHeight     = 32.0;
 
 // activity
 static const CGFloat CSToastActivityWidth       = 100.0;
@@ -244,7 +244,7 @@ static UIView *prevToast = NULL;
     // dynamically build a toast view with any combination of message, title, & image.
     UILabel *messageLabel = nil;
     UILabel *titleLabel = nil;
-    UIImageView *imageView = nil;
+    AsyncImageView* imageView = nil;
     
     // create the parent view
     UIView *wrapperView = [[UIView alloc] init];
@@ -261,14 +261,9 @@ static UIView *prevToast = NULL;
     wrapperView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:CSToastOpacity];
     
     if(image != nil) {
-        AsyncImageView* imageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(CSToastHorizontalPadding, CSToastVerticalPadding, CSToastImageViewWidth, CSToastImageViewHeight)];
-        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        imageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(CSToastHorizontalPadding, CSToastVerticalPadding, CSToastImageViewWidth, CSToastImageViewHeight)];
         NSURL *url = [[NSURL alloc] initWithString:image];
-		[asyncImage loadImageFromURL:url];
-		
-        //imageView = [[UIImageView alloc] initWithImage:image];
-        //imageView.contentMode = UIViewContentModeScaleAspectFit;
-        //imageView.frame = CGRectMake(CSToastHorizontalPadding, CSToastVerticalPadding, CSToastImageViewWidth, CSToastImageViewHeight);
+	[imageView loadImageFromURL:url];
     }
     
     CGFloat imageWidth, imageHeight, imageLeft;
