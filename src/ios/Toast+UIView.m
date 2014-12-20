@@ -23,7 +23,7 @@ static const NSTimeInterval CSToastFadeDuration = 0.2;
 // shadow appearance
 static const CGFloat CSToastShadowOpacity       = 0.5;
 static const CGFloat CSToastShadowRadius        = 6.0;
-static const CGSize  CSToastShadowOffset        = { 4.0, 0.0 };
+static const CGSize  CSToastShadowOffset        = { 0.0, 4.0 };
 static const BOOL    CSToastDisplayShadow       = YES;
 
 // display duration and position
@@ -107,7 +107,7 @@ static UIView *prevToast = NULL;
         toast.exclusiveTouch = YES;
     }
     
-    [self addSubview:toast];
+    [self.superview addSubview:toast];
     
     [UIView animateWithDuration:CSToastFadeDuration
                           delay:0.0
