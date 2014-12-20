@@ -2,6 +2,8 @@
 #import "Toast+UIView.h"
 #import <Cordova/CDV.h>
 
+#import "ApplicationManager.h"
+
 @implementation Toast
 
 - (void)show:(CDVInvokedUrlCommand*)command {
@@ -28,6 +30,8 @@
     return;
   }
 
+  //ApplicationViewController *root = (ApplicationViewController*)[[ApplicationManager instance] currentRootViewController];
+  //[root.webView makeToast:message duration:durationInt position:position image:image];
   [self.webView makeToast:message duration:durationInt position:position image:image];
 
   CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
