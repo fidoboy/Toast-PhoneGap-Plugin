@@ -9,11 +9,11 @@
  */
 
 // general appearance
-static const CGFloat CSToastMaxWidth            = 1;      // 100% of parent view width
+static const CGFloat CSToastMaxWidth            = 0.95;      // 100% of parent view width
 static const CGFloat CSToastMaxHeight           = 0.5;    // 50% of parent view height
 static const CGFloat CSToastHorizontalPadding   = 10.0;
 static const CGFloat CSToastVerticalPadding     = 10.0;
-static const CGFloat CSToastTopBottomOffset     = 0.0;
+static const CGFloat CSToastTopBottomOffset     = 10.0;
 static const CGFloat CSToastCornerRadius        = 0.0;
 static const CGFloat CSToastOpacity             = 0.9;
 static const CGFloat CSToastFontSize            = 14.0;
@@ -23,8 +23,8 @@ static const NSTimeInterval CSToastFadeDuration = 0.2;
 
 // shadow appearance
 static const CGFloat CSToastShadowOpacity       = 0.5;
-static const CGFloat CSToastShadowRadius        = 6.0;
-static const CGSize  CSToastShadowOffset        = { 0.0, 4.0 };
+static const CGFloat CSToastShadowRadius        = 2.0;
+static const CGSize  CSToastShadowOffset        = { 0.0, 2.0 };
 static const BOOL    CSToastDisplayShadow       = YES;
 
 // display duration and position
@@ -71,22 +71,22 @@ static UIView *prevToast = NULL;
 
 - (void)makeToast:(NSString *)message duration:(NSTimeInterval)duration position:(id)position {
     UIView *toast = [self viewForMessage:message title:nil image:nil];
-    [self showToast:toast duration:duration position:position];  
+    [self showToast:toast duration:duration position:position];
 }
 
 - (void)makeToast:(NSString *)message duration:(NSTimeInterval)duration position:(id)position title:(NSString *)title {
     UIView *toast = [self viewForMessage:message title:title image:nil];
-    [self showToast:toast duration:duration position:position];  
+    [self showToast:toast duration:duration position:position];
 }
 
 - (void)makeToast:(NSString *)message duration:(NSTimeInterval)duration position:(id)position image:(NSString *)image {
     UIView *toast = [self viewForMessage:message title:nil image:image];
-    [self showToast:toast duration:duration position:position];  
+    [self showToast:toast duration:duration position:position];
 }
 
 - (void)makeToast:(NSString *)message duration:(NSTimeInterval)duration  position:(id)position title:(NSString *)title image:(NSString *)image {
     UIView *toast = [self viewForMessage:message title:title image:image];
-    [self showToast:toast duration:duration position:position];  
+    [self showToast:toast duration:duration position:position];
 }
 
 - (void)showToast:(UIView *)toast {
@@ -233,14 +233,14 @@ static UIView *prevToast = NULL;
         CGRect boundingRect = [string boundingRectWithSize:constrainedSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil];
         return CGSizeMake(ceilf(boundingRect.size.width), ceilf(boundingRect.size.height));
     }
-
+    
     return [string sizeWithFont:font constrainedToSize:constrainedSize lineBreakMode:lineBreakMode];
 }
 
 - (UIView *)viewForMessage:(NSString *)message title:(NSString *)title image:(NSString *)image {
     // sanity
     if((message == nil) && (title == nil) && (image == nil)) return nil;
-
+    
     // dynamically build a toast view with any combination of message, title, & image.
     UILabel *messageLabel = nil;
     UILabel *titleLabel = nil;
@@ -257,13 +257,13 @@ static UIView *prevToast = NULL;
         wrapperView.layer.shadowRadius = CSToastShadowRadius;
         wrapperView.layer.shadowOffset = CSToastShadowOffset;
     }
-
+    
     wrapperView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:CSToastOpacity];
     
     if(image != nil) {
         imageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(CSToastHorizontalPadding, CSToastVerticalPadding, CSToastImageViewWidth, CSToastImageViewHeight)];
         NSURL *url = [[NSURL alloc] initWithString:image];
-	[imageView loadImageFromURL:url];
+        [imageView loadImageFromURL:url];
     }
     
     CGFloat imageWidth, imageHeight, imageLeft;
@@ -324,7 +324,7 @@ static UIView *prevToast = NULL;
     
     // messageLabel frame values
     CGFloat messageWidth, messageHeight, messageLeft, messageTop;
-
+    
     if(messageLabel != nil) {
         messageWidth = messageLabel.bounds.size.width;
         messageHeight = messageLabel.bounds.size.height;
@@ -333,14 +333,14 @@ static UIView *prevToast = NULL;
     } else {
         messageWidth = messageHeight = messageLeft = messageTop = 0.0;
     }
-
+    
     CGFloat longerWidth = MAX(titleWidth, messageWidth);
     CGFloat longerLeft = MAX(titleLeft, messageLeft);
     
     // wrapper width uses the longerWidth or the image width, whatever is larger. same logic applies to the wrapper height
-    CGFloat wrapperWidth = MAX((imageWidth + (CSToastHorizontalPadding * 2)), (longerLeft + longerWidth + CSToastHorizontalPadding));    
+    CGFloat wrapperWidth = MAX((imageWidth + (CSToastHorizontalPadding * 2)), (longerLeft + longerWidth + CSToastHorizontalPadding));
     CGFloat wrapperHeight = MAX((messageTop + messageHeight + CSToastVerticalPadding), (imageHeight + (CSToastVerticalPadding * 2)));
-                         
+    
     wrapperView.frame = CGRectMake(0.0, 0.0, wrapperWidth, wrapperHeight);
     
     if(titleLabel != nil) {
@@ -356,7 +356,7 @@ static UIView *prevToast = NULL;
     if(imageView != nil) {
         [wrapperView addSubview:imageView];
     }
-        
+    
     return wrapperView;
 }
 
