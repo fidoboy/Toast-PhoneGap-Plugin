@@ -11,19 +11,19 @@
 static const CGFloat CSToastMaxWidth            = 1;      // 100% of parent view width
 static const CGFloat CSToastMaxHeight           = 0.5;    // 50% of parent view height
 static const CGFloat CSToastHorizontalPadding   = 10.0;
-static const CGFloat CSToastVerticalPadding     = 12.0;
-static const CGFloat CSToastTopBottomOffset     = 10.0;
+static const CGFloat CSToastVerticalPadding     = 10.0;
+static const CGFloat CSToastTopBottomOffset     = 0.0;
 static const CGFloat CSToastCornerRadius        = 0.0;
 static const CGFloat CSToastOpacity             = 0.9;
 static const CGFloat CSToastFontSize            = 13.0;
-static const CGFloat CSToastMaxTitleLines       = 0;
-static const CGFloat CSToastMaxMessageLines     = 0;
-static const NSTimeInterval CSToastFadeDuration = 0.3;
+static const CGFloat CSToastMaxTitleLines       = 1;
+static const CGFloat CSToastMaxMessageLines     = 3;
+static const NSTimeInterval CSToastFadeDuration = 0.2;
 
 // shadow appearance
-static const CGFloat CSToastShadowOpacity       = 0.8;
+static const CGFloat CSToastShadowOpacity       = 0.5;
 static const CGFloat CSToastShadowRadius        = 6.0;
-static const CGSize  CSToastShadowOffset        = { 4.0, 4.0 };
+static const CGSize  CSToastShadowOffset        = { 4.0, 0.0 };
 static const BOOL    CSToastDisplayShadow       = YES;
 
 // display duration and position
