@@ -261,9 +261,11 @@ static UIView *prevToast = NULL;
     wrapperView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:CSToastOpacity];
     
     if(image != nil) {
-        imageView = [[UIImageView alloc] initWithImage:image];
+        AsyncImageView* imageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(CSToastHorizontalPadding, CSToastVerticalPadding, CSToastImageViewWidth, CSToastImageViewHeight)];
         imageView.contentMode = UIViewContentModeScaleAspectFit;
-        imageView.frame = CGRectMake(CSToastHorizontalPadding, CSToastVerticalPadding, CSToastImageViewWidth, CSToastImageViewHeight);
+        //imageView = [[UIImageView alloc] initWithImage:image];
+        //imageView.contentMode = UIViewContentModeScaleAspectFit;
+        //imageView.frame = CGRectMake(CSToastHorizontalPadding, CSToastVerticalPadding, CSToastImageViewWidth, CSToastImageViewHeight);
     }
     
     CGFloat imageWidth, imageHeight, imageLeft;
