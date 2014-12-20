@@ -19,9 +19,9 @@
 
   NSInteger durationInt;
   if ([duration isEqual: @"short"]) {
-    durationInt = 2;
+    durationInt = 4;
   } else if ([duration isEqual: @"long"]) {
-    durationInt = 5;
+    durationInt = 7;
   } else {
     CDVPluginResult * pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"invalid duration. valid options are 'short' and 'long'"];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
