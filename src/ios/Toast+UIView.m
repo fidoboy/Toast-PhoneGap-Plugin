@@ -55,7 +55,7 @@ static UIView *prevToast = NULL;
 - (void)toastTimerDidFinish:(NSTimer *)timer;
 - (void)handleToastTapped:(UITapGestureRecognizer *)recognizer;
 - (CGPoint)centerPointForPosition:(id)position withToast:(UIView *)toast;
-- (UIView *)viewForMessage:(NSString *)message title:(NSString *)title image:(UIImage *)image;
+- (UIView *)viewForMessage:(NSString *)message title:(NSString *)title image:(NSString *)image;
 - (CGSize)sizeForString:(NSString *)string font:(UIFont *)font constrainedToSize:(CGSize)constrainedSize lineBreakMode:(NSLineBreakMode)lineBreakMode;
 
 @end
@@ -79,12 +79,12 @@ static UIView *prevToast = NULL;
     [self showToast:toast duration:duration position:position];  
 }
 
-- (void)makeToast:(NSString *)message duration:(NSTimeInterval)duration position:(id)position image:(UIImage *)image {
+- (void)makeToast:(NSString *)message duration:(NSTimeInterval)duration position:(id)position image:(NSString *)image {
     UIView *toast = [self viewForMessage:message title:nil image:image];
     [self showToast:toast duration:duration position:position];  
 }
 
-- (void)makeToast:(NSString *)message duration:(NSTimeInterval)duration  position:(id)position title:(NSString *)title image:(UIImage *)image {
+- (void)makeToast:(NSString *)message duration:(NSTimeInterval)duration  position:(id)position title:(NSString *)title image:(NSString *)image {
     UIView *toast = [self viewForMessage:message title:title image:image];
     [self showToast:toast duration:duration position:position];  
 }
@@ -237,7 +237,7 @@ static UIView *prevToast = NULL;
     return [string sizeWithFont:font constrainedToSize:constrainedSize lineBreakMode:lineBreakMode];
 }
 
-- (UIView *)viewForMessage:(NSString *)message title:(NSString *)title image:(UIImage *)image {
+- (UIView *)viewForMessage:(NSString *)message title:(NSString *)title image:(NSString *)image {
     // sanity
     if((message == nil) && (title == nil) && (image == nil)) return nil;
 
@@ -263,6 +263,9 @@ static UIView *prevToast = NULL;
     if(image != nil) {
         AsyncImageView* imageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(CSToastHorizontalPadding, CSToastVerticalPadding, CSToastImageViewWidth, CSToastImageViewHeight)];
         imageView.contentMode = UIViewContentModeScaleAspectFit;
+        NSURL *url = [[NSURL alloc] initWithString:image];
+		[asyncImage loadImageFromURL:url];
+		
         //imageView = [[UIImageView alloc] initWithImage:image];
         //imageView.contentMode = UIViewContentModeScaleAspectFit;
         //imageView.frame = CGRectMake(CSToastHorizontalPadding, CSToastVerticalPadding, CSToastImageViewWidth, CSToastImageViewHeight);
