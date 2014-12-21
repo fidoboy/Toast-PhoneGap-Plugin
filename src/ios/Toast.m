@@ -38,7 +38,7 @@
   //  }
   //}
     
-  [self.webView makeToast:message duration:durationInt position:position image:image];
+  [self.view makeToast:message duration:durationInt position:position image:image];
 
   CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
   [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
