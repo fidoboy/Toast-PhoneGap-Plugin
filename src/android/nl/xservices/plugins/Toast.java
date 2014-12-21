@@ -1,12 +1,20 @@
 package nl.xservices.plugins;
 
+import android.view.LayoutInflater;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.graphics.Bitmap;
 import android.view.Gravity;
 import android.content.res.Resources;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 
-import android.view.LayoutInflater;
 import org.json.JSONArray;
 import org.json.JSONException;
 
