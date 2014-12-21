@@ -1,7 +1,5 @@
 package nl.xservices.plugins;
 
-import nl.xservices.R;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
