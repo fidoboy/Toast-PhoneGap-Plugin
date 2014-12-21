@@ -9,7 +9,7 @@
  */
 
 // general appearance
-static const CGFloat CSToastMaxWidth            = 0.95;      // 100% of parent view width
+static const CGFloat CSToastMaxWidth            = 0.90;      // 100% of parent view width
 static const CGFloat CSToastMaxHeight           = 0.5;    // 50% of parent view height
 static const CGFloat CSToastHorizontalPadding   = 10.0;
 static const CGFloat CSToastVerticalPadding     = 10.0;
