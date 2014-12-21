@@ -67,9 +67,9 @@ public class Toast extends CordovaPlugin {
 					//img.setImageBitmap(bmap );
 					
 					LayoutInflater inflater = LayoutInflater.from(webView.getContext());
-					View layout = inflater.inflate(R.layout.custom_toast,(ViewGroup)findViewById(R.id.toast_layout));
-					TextView text = (TextView) layout.findViewById(R.id.text);
-					ImageView imageView = (ImageView) layout.findViewById(R.id.image);
+					View layout = inflater.inflate(android.R.layout.custom_toast,(ViewGroup)findViewById(android.R.id.toast_layout));
+					TextView text = (TextView) layout.findViewById(android.R.id.text);
+					ImageView imageView = (ImageView) layout.findViewById(android.R.id.image);
 					imageView.setImageBitmap(bmap);
 					
 					text.setText(message); //Message shown in Custom Toast
