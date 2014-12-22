@@ -1,7 +1,6 @@
 package nl.xservices.plugins;
 
-import nl.xservices.plugins.R;
-
+import nl.xservices.plugins.FakeR;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +33,7 @@ import org.json.JSONException;
 public class Toast extends CordovaPlugin {
 
 	private static final String ACTION_SHOW_EVENT = "show";
+	private FakeR fakeR;
 
 	public Bitmap getBitmapFromURL(String link) {
 		try {
@@ -67,9 +67,15 @@ public class Toast extends CordovaPlugin {
 					//img.setImageBitmap(bmap );
 					
 					LayoutInflater inflater = LayoutInflater.from(webView.getContext());
-					View layout = inflater.inflate(android.R.layout.custom_toast,(ViewGroup)findViewById(android.R.id.toast_layout));
-					TextView text = (TextView) layout.findViewById(android.R.id.text);
-					ImageView imageView = (ImageView) layout.findViewById(android.R.id.image);
+					fakeR = new FakeR(this);
+        				setContentView(fakeR.getId("layout", "multiselectorgrid"));
+					
+					//View layout = inflater.inflate(android.R.layout.custom_toast,(ViewGroup)findViewById(android.R.id.toast_layout));
+					View layout = inflater.inflate(fakeR.getId("layout", "custom_toast"),(ViewGroup)findViewById(fakeR.getId("id", "toast_layout")));
+					//TextView text = (TextView) layout.findViewById(android.R.id.text);
+					TextView text = (TextView) layout.findViewById(fakeR.getId("id", "text"));
+					//ImageView imageView = (ImageView) layout.findViewById(android.R.id.image);
+					ImageView imageView = (ImageView) layout.findViewById(fakeR.getId("id", "image"));
 					imageView.setImageBitmap(bmap);
 					
 					text.setText(message); //Message shown in Custom Toast
