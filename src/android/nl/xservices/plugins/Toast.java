@@ -35,8 +35,7 @@ import org.json.JSONException;
 public class Toast extends CordovaPlugin {
 
 	private static final String ACTION_SHOW_EVENT = "show";
-	private FakeR fakeR;
-
+	
 	public Bitmap getBitmapFromURL(String link) {
 		try {
 			URL url = new URL(link);
