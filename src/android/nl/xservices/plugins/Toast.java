@@ -1,6 +1,5 @@
 package nl.xservices.plugins;
 
-//import nl.xservices.plugins.FakeR;
 import android.view.LayoutInflater;
 import android.view.Gravity;
 import android.view.View;
@@ -11,7 +10,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.content.Context;
 import android.content.res.Resources;
-//import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -68,23 +66,19 @@ public class Toast extends CordovaPlugin {
                         		String packageName = context.getPackageName();
 					
 					LayoutInflater inflater = LayoutInflater.from(context);
-					//fakeR = new FakeR(webView.getContext());
-        				
-					//View layout = inflater.inflate(android.R.layout.custom_toast,(ViewGroup)findViewById(android.R.id.toast_layout));
+					
 					View layout = inflater.inflate(resources.getIdentifier("custom_toast","layout",packageName),null);
-					//TextView text = (TextView) layout.findViewById(android.R.id.text);
 					TextView text = (TextView) layout.findViewById(resources.getIdentifier("text","id",packageName));
-					//ImageView imageView = (ImageView) layout.findViewById(android.R.id.image);
 					ImageView imageView = (ImageView) layout.findViewById(resources.getIdentifier("image","id",packageName));
 					imageView.setImageBitmap(bmap);
 					
-					text.setText(message); //Message shown in Custom Toast
+					text.setText(message);
 					android.widget.Toast toast = new android.widget.Toast(context);
 					
 					if ("top".equals(position)) {
-						toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
+						toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 40);
 					} else  if ("bottom".equals(position)) {
-						toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
+						toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 40);
 					} else if ("center".equals(position)) {
 						toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL, 0, 0);
 					} else {
