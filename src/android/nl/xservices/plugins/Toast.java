@@ -66,11 +66,12 @@ public class Toast extends CordovaPlugin {
 					
 					//ImageView img = new ImageView();
 					//img.setImageBitmap(bmap );
+					Context context = cordova.getActivity().getApplicationContext();
 					
 					Resources resources = context.getResources();                       
                         		String packageName = context.getPackageName();
 					
-					LayoutInflater inflater = LayoutInflater.from(webView.getContext());
+					LayoutInflater inflater = LayoutInflater.from(context);
 					//fakeR = new FakeR(webView.getContext());
         				//setContentView(fakeR.getId("layout", "multiselectorgrid"));
 					
@@ -84,7 +85,7 @@ public class Toast extends CordovaPlugin {
 					
 					text.setText(message); //Message shown in Custom Toast
 					//Toast toast = new Toast(getApplicationContext());
-					Toast toast = new Toast(webView.getContext());
+					Toast toast = new Toast(context);
 					//toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
 					//toast.show();
 					
