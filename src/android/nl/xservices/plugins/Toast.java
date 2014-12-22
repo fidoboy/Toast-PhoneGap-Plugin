@@ -67,7 +67,7 @@ public class Toast extends CordovaPlugin {
 					//img.setImageBitmap(bmap );
 					
 					LayoutInflater inflater = LayoutInflater.from(webView.getContext());
-					fakeR = new FakeR(this);
+					fakeR = new FakeR(webView.getContext());
         				setContentView(fakeR.getId("layout", "multiselectorgrid"));
 					
 					//View layout = inflater.inflate(android.R.layout.custom_toast,(ViewGroup)findViewById(android.R.id.toast_layout));
