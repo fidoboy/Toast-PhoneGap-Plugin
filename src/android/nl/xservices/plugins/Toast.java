@@ -71,7 +71,7 @@ public class Toast extends CordovaPlugin {
 					//fakeR = new FakeR(webView.getContext());
         				
 					//View layout = inflater.inflate(android.R.layout.custom_toast,(ViewGroup)findViewById(android.R.id.toast_layout));
-					View layout = inflater.inflate(resources.getIdentifier("custom_toast","layout",packageName),(ViewGroup)findViewById(resources.getIdentifier("toast_layout","id",packageName)));
+					View layout = inflater.inflate(resources.getIdentifier("custom_toast","layout",packageName),null);
 					//TextView text = (TextView) layout.findViewById(android.R.id.text);
 					TextView text = (TextView) layout.findViewById(resources.getIdentifier("text","id",packageName));
 					//ImageView imageView = (ImageView) layout.findViewById(android.R.id.image);
