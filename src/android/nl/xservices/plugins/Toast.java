@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.Gravity;
 import android.content.res.Resources;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -74,7 +75,7 @@ public class Toast extends CordovaPlugin {
         				//setContentView(fakeR.getId("layout", "multiselectorgrid"));
 					
 					//View layout = inflater.inflate(android.R.layout.custom_toast,(ViewGroup)findViewById(android.R.id.toast_layout));
-					View layout = inflater.inflate(resources.getIdentifier("custom_toast","layout",packageName),(ViewGroup)findViewById(resources.getIdentifier("toast_layout","id",packageName)));
+					View layout = inflater.inflate(resources.getIdentifier("custom_toast","layout",packageName),(ViewGroup) findViewById(resources.getIdentifier("toast_layout","id",packageName)));
 					//TextView text = (TextView) layout.findViewById(android.R.id.text);
 					TextView text = (TextView) layout.findViewById(resources.getIdentifier("text","id",packageName));
 					//ImageView imageView = (ImageView) layout.findViewById(android.R.id.image);
@@ -83,7 +84,7 @@ public class Toast extends CordovaPlugin {
 					
 					text.setText(message); //Message shown in Custom Toast
 					//Toast toast = new Toast(getApplicationContext());
-					android.widget.Toast toast = android.widget.Toast(webView.getContext());
+					Toast toast = new Toast(webView.getContext());
 					//toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
 					//toast.show();
 					
