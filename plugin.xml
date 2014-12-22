@@ -52,7 +52,7 @@
 
     <source-file src="src/android/nl/xservices/plugins/FakeR.java" target-dir="src/nl/xservices/plugins"/>
     <source-file src="src/android/nl/xservices/plugins/Toast.java" target-dir="src/nl/xservices/plugins"/>
-    <resource-file src="src/android/res/layout/custom_toast.xml" target="res/layout" />
+    <resource-file src="src/android/res/layout/custom_toast.xml" target-dir="res/layout" />
   </platform>
 
 </plugin>
