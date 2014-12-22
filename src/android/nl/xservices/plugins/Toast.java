@@ -2,13 +2,14 @@ package nl.xservices.plugins;
 
 //import nl.xservices.plugins.FakeR;
 import android.view.LayoutInflater;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.view.Gravity;
+import android.content.Context;
 import android.content.res.Resources;
 import android.widget.Toast;
 
