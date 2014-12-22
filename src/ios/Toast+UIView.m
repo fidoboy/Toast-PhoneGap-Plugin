@@ -108,7 +108,8 @@ static UIView *prevToast = NULL;
         toast.exclusiveTouch = YES;
     }
     
-    [self addSubview:toast];
+    [[[[UIApplication sharedApplication] delegate] window] addSubview:toast];
+    //[self addSubview:toast];
     
     [UIView animateWithDuration:CSToastFadeDuration
                           delay:0.0
