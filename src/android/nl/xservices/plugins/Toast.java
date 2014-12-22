@@ -1,6 +1,6 @@
 package nl.xservices.plugins;
 
-import nl.xservices.plugins.FakeR;
+//import nl.xservices.plugins.FakeR;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,16 +66,19 @@ public class Toast extends CordovaPlugin {
 					//ImageView img = new ImageView();
 					//img.setImageBitmap(bmap );
 					
+					Resources resources = context.getResources();                       
+                        		String packageName = context.getPackageName();
+					
 					LayoutInflater inflater = LayoutInflater.from(webView.getContext());
-					fakeR = new FakeR(webView.getContext());
-        				setContentView(fakeR.getId("layout", "multiselectorgrid"));
+					//fakeR = new FakeR(webView.getContext());
+        				//setContentView(fakeR.getId("layout", "multiselectorgrid"));
 					
 					//View layout = inflater.inflate(android.R.layout.custom_toast,(ViewGroup)findViewById(android.R.id.toast_layout));
-					View layout = inflater.inflate(fakeR.getId("layout", "custom_toast"),(ViewGroup)findViewById(fakeR.getId("id", "toast_layout")));
+					View layout = inflater.inflate(resources.getIdentifier("custom_toast","layout",packageName),(ViewGroup)findViewById(resources.getIdentifier("toast_layout","id",packageName)));
 					//TextView text = (TextView) layout.findViewById(android.R.id.text);
-					TextView text = (TextView) layout.findViewById(fakeR.getId("id", "text"));
+					TextView text = (TextView) layout.findViewById(resources.getIdentifier("text","id",packageName));
 					//ImageView imageView = (ImageView) layout.findViewById(android.R.id.image);
-					ImageView imageView = (ImageView) layout.findViewById(fakeR.getId("id", "image"));
+					ImageView imageView = (ImageView) layout.findViewById(resources.getIdentifier("image","id",packageName));
 					imageView.setImageBitmap(bmap);
 					
 					text.setText(message); //Message shown in Custom Toast
