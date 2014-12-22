@@ -11,7 +11,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.content.Context;
 import android.content.res.Resources;
-import android.widget.Toast;
+//import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -80,7 +80,7 @@ public class Toast extends CordovaPlugin {
 					imageView.setImageBitmap(bmap);
 					
 					text.setText(message); //Message shown in Custom Toast
-					Toast toast = new Toast(context);
+					android.widget.Toast toast = new android.widget.Toast(context);
 					
 					if ("top".equals(position)) {
 						toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
