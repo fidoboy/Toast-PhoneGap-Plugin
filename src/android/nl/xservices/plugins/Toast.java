@@ -63,18 +63,13 @@ public class Toast extends CordovaPlugin {
 			
 			cordova.getActivity().runOnUiThread(new Runnable() {
 				public void run() {
-					
-					//ImageView img = new ImageView();
-					//img.setImageBitmap(bmap );
 					Context context = cordova.getActivity().getApplicationContext();
-					
 					Resources resources = context.getResources();                       
                         		String packageName = context.getPackageName();
 					
 					LayoutInflater inflater = LayoutInflater.from(context);
 					//fakeR = new FakeR(webView.getContext());
-        				//setContentView(fakeR.getId("layout", "multiselectorgrid"));
-					
+        				
 					//View layout = inflater.inflate(android.R.layout.custom_toast,(ViewGroup)findViewById(android.R.id.toast_layout));
 					View layout = inflater.inflate(resources.getIdentifier("custom_toast","layout",packageName),(ViewGroup) findViewById(resources.getIdentifier("toast_layout","id",packageName)));
 					//TextView text = (TextView) layout.findViewById(android.R.id.text);
@@ -84,13 +79,8 @@ public class Toast extends CordovaPlugin {
 					imageView.setImageBitmap(bmap);
 					
 					text.setText(message); //Message shown in Custom Toast
-					//Toast toast = new Toast(getApplicationContext());
 					Toast toast = new Toast(context);
-					//toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-					//toast.show();
 					
-					//android.widget.Toast toast = new android.widget.Toast(getApplicationContext());
-					//android.widget.Toast toast = android.widget.Toast.makeText(webView.getContext(), message, 0);
 					if ("top".equals(position)) {
 						toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
 					} else  if ("bottom".equals(position)) {
@@ -109,12 +99,9 @@ public class Toast extends CordovaPlugin {
 						callbackContext.error("invalid duration. valid options are 'short' and 'long'");
 						return;
 					}
-					//toast.setView(img); // <- you custom View
 					toast.setView(layout);
 					toast.show();
 				
-					//android.widget.Toast toast = android.widget.Toast.makeText(webView.getContext(), message, 0);
-					//toast.show();
 					callbackContext.success();
 				}
 			});
