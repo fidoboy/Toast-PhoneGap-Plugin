@@ -52,7 +52,7 @@
 
     <source-file src="src/android/nl/xservices/plugins/Toast.java" target-dir="src/nl/xservices/plugins"/>
     <resource-file src="src/android/res/layout/custom_toast.xml" target="res/layout/custom_toast.xml"/>
-    <resource-file src="src/android/res/drawable/layout_bg.xml" target-dir="res/drawable/layout_bg.xml"/>
+    <resource-file src="src/android/res/drawable/layout_bg.xml" target="res/drawable/layout_bg.xml"/>
   </platform>
 
 </plugin>
