@@ -33,6 +33,8 @@ import org.json.JSONException;
 public class Toast extends CordovaPlugin {
 
 	private static final String ACTION_SHOW_EVENT = "show";
+	private android.widget.Toast mostRecentToast;
+	private boolean isPaused;
 	
 	public Bitmap getBitmapFromURL(String link) {
 		try {
@@ -52,6 +54,10 @@ public class Toast extends CordovaPlugin {
 	@Override
 	public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
 		if (ACTION_SHOW_EVENT.equals(action)) {
+			if (this.isPaused) {
+				return true;
+			}
+      
 			final String message = args.getString(0);
 			final String duration = args.getString(1);
 			final String position = args.getString(2);
@@ -95,7 +101,7 @@ public class Toast extends CordovaPlugin {
 					}
 					toast.setView(layout);
 					toast.show();
-				
+					mostRecentToast = toast;
 					callbackContext.success();
 				}
 			});
@@ -105,5 +111,18 @@ public class Toast extends CordovaPlugin {
 			callbackContext.error("toast." + action + " is not a supported function. Did you mean '" + ACTION_SHOW_EVENT + "'?");
 			return false;
 		}
+	}
+	
+	@Override
+	public void onPause(boolean multitasking) {
+		if (mostRecentToast != null) {
+			mostRecentToast.cancel();
+		}
+		this.isPaused = true;
+	}
+
+	@Override
+	public void onResume(boolean multitasking) {
+		this.isPaused = false;
 	}
 }
